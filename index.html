@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- -->
+  </head>
+ 	<body>
+ 		
+ 		<h1>Twittler By RbK</h1>
+ 		<p></p>
+ 		<input type = "text" id = "inputMessage" placeholder="message" required>
+ 		</br>
+ 		<input type="text" id = "inputUserName" placeholder ="name" required>
+
+ 		<button id="btn" >post</button>
+ 		
+ 		<div id="divBody" style="color: #65350F;background-color:beige;"></div>
+ 		<div id="display">
+ 			</br></br>
+ 		</div>
+ 		<div id="usersDiv">
+ 			<button id="shawndrostUser"> shawndrost</button>
+ 			<button id="sharksforcheapUser">sharksforcheap</button>
+ 			<button id="mracusUser">mracus</button>
+ 			<button id="douglascalhounUser">douglascalhoun</button>
+ 		</div>
+ 		<script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <script>
+    	var x;
+      $(document).ready(function(){
+
+				var $divBody = $('div#divBody');
+        $divBody.html('');
+        //////////////////
+
+        
+      	
+        
+        ////////////////////
+        
+        
+
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div></div>');
+      
+
+          $tweet.text(' @ ' + tweet.user +  " : " + tweet.message + ' created at ' + tweet.created_at);
+          $tweet.appendTo($divBody); //addes the tweet to the body of the html page
+        	
+
+          index -= 1;
+
+          }
+
+          $("#btn").click(function() {
+      	var inputMessage = $('#inputMessage').val();
+      	var inputUserName = $('#inputUserName').val();
+      	var creationDate = new Date();
+      	
+      	var finalOutPut = ' @ ' + inputUserName +  " : " + inputMessage+ ' created at ' + creationDate;
+      	
+      	$($divBody).append(finalOutPut);
+      	$($divBody).append("</br>");
+     	   });
+        
+     		$('#shawndrostUser').click(function() {
+     			
+     		});
+
+      });
+
+
+      
+
+    </script>
+
+  </body>
+</html>
